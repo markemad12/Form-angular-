@@ -1,0 +1,202 @@
+/* تنسيق عام للنموذج */
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background-color: #4299e1;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #4299e1; /* تغيير لون النص عند التمرير */
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #2d3748;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #4299e1;
+        box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+      }
+
+      &::placeholder {
+        color: #a0aec0;
+      }
+    }
+
+    .validation-container {
+      margin-top: 0.5rem;
+
+      .error-text {
+        color: #e53e3e;
+        font-size: 0.875rem;
+        margin: 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+  
+      &[type="submit"] {
+        background: linear-gradient(135deg, #4299e1, #3182ce);
+        color: white;
+        box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+  
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(66, 153, 225, 0.3);
+          animation: pulse 1.5s infinite;
+        }
+  
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 300%;
+          height: 300%;
+          background: rgba(255, 255, 255, 0.3);
+          transform: translate(-50%, -50%) rotate(45deg);
+          transition: all 0.5s ease;
+          z-index: -1;
+          opacity: 0;
+        }
+  
+        &:hover::after {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+  
+      &[type="button"] {
+        background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+        color: #2d3748;
+        box-shadow: 0 4px 6px rgba(203, 213, 224, 0.2);
+  
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(203, 213, 224, 0.3);
+        }
+  
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 300%;
+          height: 300%;
+          background: rgba(255, 255, 255, 0.3);
+          transform: translate(-50%, -50%) rotate(45deg);
+          transition: all 0.5s ease;
+          z-index: -1;
+          opacity: 0;
+        }
+  
+        &:hover::after {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+  
+      &:active {
+        transform: scale(0.98);
+      }
+  
+      &:disabled {
+        background: #cbd5e0;
+        color: #a0aec0;
+        cursor: not-allowed;
+        box-shadow: none;
+  
+        &:hover {
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container {
+  animation: fadeIn 0.5s ease-in-out; /* ظهور النموذج بسلاسة */
+}
+}

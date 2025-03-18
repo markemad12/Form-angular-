@@ -1,0 +1,46 @@
+<form action="" [formGroup]="profileData" (ngSubmit)="submitform()" class="form-container">
+    <h1>Product</h1>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input formControlName="name" type="text">
+        <div class="validation-container" *ngIf="f.name.errors && f.name.dirty && f.name.touched">
+        <p *ngIf="f.name.errors.required" class="error-text">this  field is required </p>
+    </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="">email</label>
+    <input formControlName="email" type="email">
+    <div class="validation-container" *ngIf="f.email.errors && f.email.dirty && f.email.touched">
+        <p *ngIf="f.email.errors.required" class="error-text"> this  field is required</p>
+        <p *ngIf="f.email.errors.email" class="error-text"> Type correct Email</p>
+    </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="">salary</label>
+    <input formControlName="salary" type="text">
+    <div class="validation-container" *ngIf="f.salary.errors && f.salary.dirty && f.salary.touched">
+        <p *ngIf="f.salary.errors.required" class="error-text"> this  field is required</p>
+        <p *ngIf="f.salary.errors.maxLength" class="error-text"> this  field is 10 char </p>
+    </div>
+    </div>
+    <br>
+   <div class="address-group" formGroupName="address">
+    <h3>Address</h3>
+    <div class="form-group">
+        <label for="">city</label>
+        <input formControlName="city" type="text">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="">street</label>
+        <input formControlName="street" type="text">
+    </div>
+   </div>
+    <br>
+    <div class="button-group">
+    <button type="button" (click)="updateinput()">Update Value</button>
+    <button type="submit" [disabled]="profileData.invalid">submit</button>
+    </div>
+</form>
